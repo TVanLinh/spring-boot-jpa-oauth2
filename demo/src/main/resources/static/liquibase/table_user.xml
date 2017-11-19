@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet id="create_user" author="Tran Van Linh">
+        <createTable tableName="user">
+            <column name="ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="USER_NAME" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="PASS_WORD" type="varchar(200)"/>
+            <column name="EMAIL" type="char(100)"/>
+            <column name="NAME" type="varchar(200)"/>
+            <column name="PHONE" type="char(50)"/>
+            <column name="BIRTH_DAY" type="date"/>
+            <column name="IDENTITY" type="char(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="MODE" type="TINYINT(1)" defaultValue="0"/>
+            <column name="TYPE" type="TINYINT(1)" defaultValue="0"/>
+            <column name="IMAGE" type="LONGBLOB"/>
+            <column name="STATUS" type="TINYINT(1)"/>
+            <column name="ID_DEVICE" type="TEXT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

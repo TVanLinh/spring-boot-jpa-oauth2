@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <!-- create table -->
+    <include file="classpath:static/liquibase/table_user.xml"/>
+    <include file="classpath:static/liquibase/table_role.xml"/>
+
+    <!---  add contraints  - -->
+    <include file="classpath:static/liquibase/user_role_contraints.xml"/>
+
+    <!--insert-->
+    <changeSet id="insety" author="tvlinh">
+        <insert tableName="user">
+            <column name="USER_NAME">admin</column>
+            <column name="PASS_WORD">123456</column>
+            <column name="NAME">tran văn linh</column>
+            <column name="IDENTITY">89484899454</column>
+            <column name="STATUS">1</column>
+        </insert>
+        <insert tableName="role">
+            <column name="NAME">ROLE_USER</column>
+            <column name="USER_ID">1</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
